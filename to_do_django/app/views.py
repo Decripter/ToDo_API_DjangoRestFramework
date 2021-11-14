@@ -18,3 +18,16 @@ def todo_list(request):
             serializer.save()
             return Response(serializer.data, status = status.HTTP_201_CREATED)
         return Response(serializer.error_messages, status = status.HTTP_400_BAD_REQUEST)
+@api_view(['GET', 'PUT', 'DELETE'])
+
+def todo_detail_change_and_delete(request, pk):
+    try:
+        todo = Todo.objects.get(pk=pk)
+    except Todo.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    if request == 'GET': pass
+
+    elif request == 'PUT': pass
+
+    elif request == 'DELETE': pass
+
